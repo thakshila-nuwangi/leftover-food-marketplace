@@ -1,0 +1,17 @@
+{
+  "name": "leftover-food-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marketplace for discounted surplus restaurant food",
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "npm --workspace apps/api run start:dev"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

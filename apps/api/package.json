@@ -1,0 +1,6 @@
+{
+  "name": "@leftover-food/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {"test": "echo \"API tests are ready for Jest/Vitest wiring\""}
+}

@@ -1,0 +1,56 @@
+.marketplace-shell { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+.marketplace-shell header { margin-bottom: 28px; }
+.reservation-card { display: grid; gap: 14px; max-width: 420px; padding: 24px; border: 1px solid #d9dee8; border-radius: 18px; background: #ffffff; box-shadow: 0 16px 42px rgba(32, 47, 74, 0.08); }
+.reservation-card label { display: grid; gap: 6px; font-size: 0.9rem; }
+.reservation-card input { padding: 10px 12px; border: 1px solid #bcc6d6; border-radius: 10px; }
+.reservation-card button { padding: 12px 16px; border: 0; border-radius: 10px; background: #1d3557; color: white; font-weight: 700; cursor: pointer; }
+.reservation-price { font-size: 1.2rem; font-weight: 700; }
+.reservation-success, .reservation-summary { color: #246b45; font-weight: 600; }
+.reservation-history { margin-top: 36px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-heading h2 { margin: 0; }
+.reservation-count { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 999px; background: #e7eef7; color: #1d3557; font-weight: 800; }
+.reservation-empty { padding: 20px; border: 1px dashed #bcc6d6; border-radius: 14px; color: #5f6b7a; }
+.reservation-list { display: grid; gap: 12px; }
+.reservation-history-card { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px; border: 1px solid #d9dee8; border-radius: 14px; background: #fff; }
+.reservation-history-card p { margin: 6px 0 0; color: #5f6b7a; }
+.reservation-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.reservation-actions button { padding: 8px 10px; border: 1px solid #bcc6d6; border-radius: 9px; background: #fff; color: #1d3557; font-weight: 700; cursor: pointer; }
+.reservation-status { padding: 6px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.04em; }
+.status-confirmed { background: #e8f6ee; color: #246b45; }
+.status-cancelled { background: #fbeaea; color: #9d3434; }
+.status-collected { background: #e7eef7; color: #1d3557; }
+@media (max-width: 640px) { .reservation-history-card { align-items: flex-start; flex-direction: column; } .reservation-actions { justify-content: flex-start; } }
+
+.pickup-warning { display: inline-block; margin-top: 0.4rem; font-size: 0.75rem; font-weight: 700; color: #9a3412; }
+
+.marketplace-browser { margin: 2rem 0; }
+.marketplace-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0 1.25rem; }
+.marketplace-filters label { display: grid; gap: 0.35rem; font-size: 0.85rem; font-weight: 700; }
+.marketplace-filters input, .marketplace-filters select { border: 1px solid #d7d8dc; border-radius: 10px; padding: 0.7rem 0.75rem; font: inherit; }
+.marketplace-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.listing-card { display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; padding: 1rem; border: 1px solid #e0e1e5; border-radius: 16px; background: #fff; }
+.listing-card h3 { margin: 0.2rem 0 0.45rem; }
+.listing-card-footer { display: grid; gap: 0.45rem; }
+.listing-card-footer strong { font-size: 1.25rem; }
+.listing-card-footer span { color: #6d7078; font-size: 0.9rem; }
+.listing-card-footer button { justify-self: start; }
+@media (max-width: 720px) { .marketplace-filters { grid-template-columns: 1fr; } }
+
+.reservation-restaurant { margin: -8px 0 0; color: #5f6b7a; font-weight: 700; }
+.reservation-pickup { margin: -8px 0 0; color: #5f6b7a; }
+
+.reservation-success {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 0.8rem;
+  padding: 0.8rem;
+  border-radius: 0.75rem;
+  background: #edf8ef;
+}
+
+.reservation-success span,
+.reservation-history-card small {
+  color: #55705a;
+  font-size: 0.85rem;
+}
