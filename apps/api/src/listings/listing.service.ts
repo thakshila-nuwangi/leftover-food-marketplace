@@ -64,4 +64,20 @@ export class ListingService {
     }
     return this.repository.save({ ...listing, status });
   }
+
+  getRestaurantListingSummary(restaurantName: string): {
+    total: number;
+    available: number;
+    soldOut: number;
+    expired: number;
+    servingsAvailable: number;
+  } {
+    const listings = this.getRestaurantListings(restaurantName);
+    return listings.reduce((summary, listing) => {
+      summary.total += 1;
+      summary[listing.status === 'AVAILABLE' ? 'available' : listing.status === 'SOLD_OUT' ? 'soldOut' : 'expired'] += 1;
+      summary.servingsAvailable += listing.servingsAvailable;
+      return summary;
+    }, { total: 0, available: 0, soldOut: 0, expired: 0, servingsAvailable: 0 });
+  }
 }

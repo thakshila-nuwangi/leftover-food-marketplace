@@ -105,3 +105,5 @@ apps/
 ## Day 22 progress
 - Added listing publish/unpublish status transitions with validation so restaurants can hide a listing without losing its remaining inventory.
 - Strengthened availability validation to require non-negative whole-number serving counts.
+
+- Added restaurant listing summary metrics for total listings, publish state, and remaining inventory.

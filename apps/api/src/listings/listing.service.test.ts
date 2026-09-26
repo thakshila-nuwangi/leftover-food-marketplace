@@ -58,3 +58,17 @@ describe('ListingService', () => {
 
     expect(() => service.updateStatus('1', 'AVAILABLE')).toThrow('Cannot publish a listing with no servings');
   });
+
+
+  it('summarises restaurant listing statuses and inventory', () => {
+    const service = new ListingService(new InMemoryListingRepository([
+      { id: '1', restaurantName: 'Harbour Kitchen', title: 'Pasta', description: 'Pasta', originalPriceCents: 1200, discountedPriceCents: 600, servingsAvailable: 3, pickupStart: '17:00', pickupEnd: '19:00', status: 'AVAILABLE' },
+      { id: '2', restaurantName: 'Harbour Kitchen', title: 'Soup', description: 'Soup', originalPriceCents: 900, discountedPriceCents: 400, servingsAvailable: 0, pickupStart: '17:00', pickupEnd: '19:00', status: 'SOLD_OUT' },
+      { id: '3', restaurantName: 'Harbour Kitchen', title: 'Cake', description: 'Cake', originalPriceCents: 800, discountedPriceCents: 300, servingsAvailable: 1, pickupStart: '17:00', pickupEnd: '19:00', status: 'EXPIRED' },
+      { id: '4', restaurantName: 'Other', title: 'Rice', description: 'Rice', originalPriceCents: 800, discountedPriceCents: 300, servingsAvailable: 4, pickupStart: '17:00', pickupEnd: '19:00', status: 'AVAILABLE' },
+    ]));
+
+    expect(service.getRestaurantListingSummary('Harbour Kitchen')).toEqual({
+      total: 3, available: 1, soldOut: 1, expired: 1, servingsAvailable: 4,
+    });
+  });
