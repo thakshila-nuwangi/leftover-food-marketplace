@@ -6,8 +6,8 @@ import { PickupVerifier } from '../components/PickupVerifier';
 import '../styles/listing-form.css';
 
 const listings = [
-  { id: 'listing-1', title: 'Creamy mushroom pasta', servings: 8 },
-  { id: 'listing-2', title: 'Roast vegetable focaccia', servings: 3 },
+  { id: 'listing-1', title: 'Creamy mushroom pasta', servings: 8, status: 'AVAILABLE' as const },
+  { id: 'listing-2', title: 'Roast vegetable focaccia', servings: 3, status: 'AVAILABLE' as const },
 ];
 
 export function RestaurantDashboard() {
@@ -16,7 +16,7 @@ export function RestaurantDashboard() {
   const visibleListings = useMemo(() => listings.filter((listing) => listing.title.toLowerCase().includes(query.toLowerCase())), [query]);
 
   function publish(title: string, servings: number) {
-    listings.push({ id: `listing-${listings.length + 1}`, title, servings });
+    listings.push({ id: `listing-${listings.length + 1}`, title, servings, status: 'AVAILABLE' });
     setPublishedCount((count) => count + 1);
   }
 
@@ -32,7 +32,14 @@ export function RestaurantDashboard() {
       <label className="dashboard-search">Filter listings<input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by meal name" /></label>
       <div className="dashboard-grid">
         {visibleListings.map((listing) => (
-          <AvailabilityEditor key={listing.id} listingTitle={listing.title} initialServings={listing.servings} onSave={() => undefined} />
+          <AvailabilityEditor
+            key={listing.id}
+            listingTitle={listing.title}
+            initialServings={listing.servings}
+            initialStatus={listing.status}
+            onSave={() => undefined}
+            onStatusChange={() => undefined}
+          />
         ))}
         {visibleListings.length === 0 && <p className="empty-state">No listings match your search.</p>}
       </div>

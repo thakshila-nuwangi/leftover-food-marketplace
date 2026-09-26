@@ -107,3 +107,5 @@ apps/
 - Strengthened availability validation to require non-negative whole-number serving counts.
 
 - Added restaurant listing summary metrics for total listings, publish state, and remaining inventory.
+
+- Added restaurant controls to hide and republish listings while preserving their inventory.
